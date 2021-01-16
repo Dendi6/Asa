@@ -34,7 +34,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('admin/arahAngin'); ?>">
             <i class="fas fa-fw fa-city"></i>
             <span>Arah Angin</span></a>
     </li>

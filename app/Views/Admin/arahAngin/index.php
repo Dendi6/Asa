@@ -27,7 +27,7 @@
     <div class="card-body">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#exampleModal">
-            Tambah curah hujan
+            Tambah Arah Angin
         </button>
 
         <table class="table">
@@ -35,22 +35,22 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Tanggal</th>
-                    <th scope="col">Curah Hujan</th>
+                    <th scope="col">Arah Angin</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($curahHujan as $ch) : ?>
+                <?php foreach ($arahAngin as $ch) : ?>
                     <tr>
                         <th scope="row"><?= $i++; ?></th>
                         <td><?= $ch['tanggal']; ?></td>
-                        <td><?= $ch['curahHujan']; ?></td>
+                        <td><?= $ch['arahAngin']; ?></td>
                         <td>
-                            <a href="<?= base_url('admin/editCurahHujan/' . $ch['id']); ?>" class="btn btn-success">
+                            <a href="<?= base_url('admin/editArahAngin/' . $ch['id']); ?>" class="btn btn-success">
                                 <i class="fas fa-edit fa-cog"></i>
                             </a>
-                            <a href="<?= base_url('admin/hapusCurahHujan/' . $ch['id']); ?>" class="btn btn-danger">
+                            <a href="<?= base_url('admin/hapusArahAngin/' . $ch['id']); ?>" class="btn btn-danger">
                                 <i class="fas fa-trash-alt fa-cog"></i>
                             </a>
                         </td>
@@ -63,7 +63,7 @@
 <!-- Modal tambah-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form class="modal-content" action="<?= base_url('admin/saveCurahHujan'); ?>" method="POST">
+        <form class="modal-content" action="<?= base_url('admin/saveArahAngin'); ?>" method="POST">
             <?= csrf_field(); ?>
             <div class="modal-body">
                 <div class="form-group">
@@ -72,9 +72,9 @@
                     <small id="tanggal" class="form-text text-muted">Masukkan tanggal penentuan</small>
                 </div>
                 <div class="form-group">
-                    <label for="curahHujan">Curah Hujan</label>
-                    <input type="text" class="form-control" id="curahHujan" name="curahHujan" aria-describedby="curahHujan" required>
-                    <small id="curahHujan" class="form-text text-muted">Masukkan jumlah curah hujan dalam satuan milimeter</small>
+                    <label for="arahAngin">Arah Angin</label>
+                    <input type="text" class="form-control" id="arahAngin" name="arahAngin" aria-describedby="arahAngin" required>
+                    <small id="arahAngin" class="form-text text-muted">Masukkan Arah Angin padat tanggal tsb</small>
                 </div>
             </div>
             <div class="modal-footer">
