@@ -11,21 +11,27 @@
         </ol>
     </nav>
 
-    <?php foreach ($riwayat as $r) : ?>
-        <div class="card text-center mb-3">
-            <div class="card-header">
-                <?= user()->username; ?>
+    <?php if ($riwayat != null) : ?>
+        <?php foreach ($riwayat as $r) : ?>
+            <div class="card text-center mb-3">
+                <div class="card-header">
+                    <?= user()->username; ?>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Saya Menangkap Udang pada tanggal <?= $r['tanggal']; ?></h5>
+                    <p class="card-text">Pada hari itu saya mendapatkan tangkapan sebanyak <?= $r['jumlahTangkapan']; ?> Kg.</p>
+                </div>
+                <div class="card-footer text-muted">
+                    di buat pada <?= $r['created_at']; ?>
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">Saya Menangkap Udang pada tanggal <?= $r['tanggal']; ?></h5>
-                <p class="card-text">Pada hari itu saya mendapatkan tangkapan sebanyak <?= $r['jumlahTangkapan']; ?> Kg.</p>
-            </div>
-            <div class="card-footer text-muted">
-                di buat pada <?= $r['created_at']; ?>
-            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+    <?php if ($riwayat == null) : ?>
+        <div class="container text-center mt-5">
+            <img src="<?= base_url(); ?>/images/empty.svg" width="400px" alt="empty">
         </div>
-    <?php endforeach; ?>
-
+    <?php endif; ?>
 </div>
 
 <?= $this->endSection(); ?>

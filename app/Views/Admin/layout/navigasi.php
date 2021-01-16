@@ -1,9 +1,3 @@
-<style>
-    .bg-gradient-primary {
-        background: #63a541;
-    }
-</style>
-
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -34,22 +28,22 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('admin/curahHujan'); ?>">
             <i class="fas fa-fw fa-percent"></i>
-            <span>Promosi</span></a>
+            <span>Curah Hujan</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-city"></i>
-            <span>Kota</span></a>
+            <span>Arah Angin</span></a>
     </li>
 
     <!-- Nav Item - produk -->
     <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Produk</span></a>
+            <span>Kecepatan Angin</span></a>
     </li>
 
 

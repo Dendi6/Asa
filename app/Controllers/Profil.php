@@ -2,31 +2,24 @@
 
 namespace App\Controllers;
 
+use App\Models\HasilModel;
 use Myth\Auth\Models\UserModel;
 
 class Profil extends BaseController
 {
-    protected $userModel;
+    protected $userModel, $hasilModel;
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->hasilModel = new HasilModel();
     }
 
     //fungsi index
     public function index($id_user)
     {
-        $db      = \Config\Database::connect();
-        $builder = $db->table('hasil_tangkapan');
-
-        $builder->where('id_user', $id_user);
-        $builder->orderBy('created_at', 'DESC');
-        $builder->limit(3);
-        $query = $builder->get();
-        $riwayat = $query->getResultArray();
-
         $data = [
             'title' => 'Profil',
-            'riwayat' => $riwayat
+            'riwayat' => $this->hasilModel->riwayatTankapan($id_user)
         ];
 
         return view('profil/index', $data);
@@ -80,6 +73,6 @@ class Profil extends BaseController
 
         session()->setFlashdata('pesan', 'Profil Berhasil di Update');
 
-        return redirect()->to('/profil');
+        return redirect()->to('/profil/' . $id);
     }
 }

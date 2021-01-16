@@ -11,16 +11,10 @@
     </nav>
 </div>
 
-<div class="row">
-    <div class="col-sm-12 col-md-4">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5>Jumlah User</h5>
-                <h2><b><?= $user; ?></b></h2>
-            </div>
-        </div>
+<div class="card">
+    <div class="card-body">
+        ajsdlasjdlsadj
     </div>
-
 </div>
 
 
