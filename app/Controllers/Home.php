@@ -34,20 +34,41 @@ class Home extends BaseController
 	}
 	public function riwayat($id_user)
 	{
-		$db      = \Config\Database::connect();
-		$builder = $db->table('hasil_tangkapan');
-
-		$builder->where('id_user', $id_user);
-		$builder->orderBy('created_at', 'DESC');
-		$builder->limit(3);
-		$query = $builder->get();
-		$riwayat = $query->getResultArray();
-
 		$data = [
 			'title' => 'Riwayat',
-			'riwayat' => $riwayat
+			'riwayat' => $this->hasilModel->riwayatTankapan($id_user)
 		];
 
 		return view('riwayat/index', $data);
+	}
+	public function hapusRiwayat($id)
+	{
+		$this->hasilModel->delete($id);
+
+		session()->setFlashdata('delete', 'Riwayat dan data hasil tanggapan berhasil di hapus');
+
+		return redirect()->to('/');
+	}
+	public function editRiwayat($id)
+	{
+		$data = [
+			'title' => 'edit riwayat',
+			'riwayat' => $this->hasilModel->find($id)
+		];
+
+		return view('riwayat/edit', $data);
+	}
+	public function updateRiwayat($id)
+	{
+		$this->hasilModel->save([
+			'id' => $id,
+			'jumlahTangkapan' => $this->request->getVar('jumlahTangkapan'),
+			'tanggal' => $this->request->getVar('tanggal')
+		]);
+
+		session()->setFlashdata('pesan', 'Riwayat dan data tangkapan berhasil di update');
+
+
+		return redirect()->to('/');
 	}
 }

@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <label for="hasil">Jumlah Tangkapan</label>
-                        <input type="number" name="jumlahTangkapan" class="form-control" id="hasil" aria-describedby="hasil" required>
+                        <input type="text" name="jumlahTangkapan" class="form-control" id="hasil" aria-describedby="hasil" required>
                         <small id="hasil" class="form-text text-muted">Masukkan Hasil Tangkapan, Satuan KG. example = 0.2 kg untuk kecil dari 1 kg</small>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

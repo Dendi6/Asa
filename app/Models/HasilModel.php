@@ -16,8 +16,8 @@ class HasilModel extends Model
     public function riwayatTankapan($id)
     {
         $this->where('id_user', $id);
-        $this->orderBy('created_at', 'DESC');
-        $this->limit(3);
+        $this->orderBy('tanggal', 'DESC');
+        $this->limit(5);
         $query = $this->get();
         $riwayat = $query->getResultArray();
 
