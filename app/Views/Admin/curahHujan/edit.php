@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="curahHujan">Curah Hujan</label>
-                <input type="text" class="form-control" id="curahHujan" name="curahHujan" aria-describedby="curahHujan" value="<?= $curahHujan['curahHujan'] ?>" required>
+                <input type="text" class="form-control" id="curahHujan" name="curahHujan" aria-describedby="curahHujan" value="<?= $curahHujan['curahHujan'] ?> mm" required>
                 <small id="curahHujan" class="form-text text-muted">Masukkan jumlah curah hujan dalam satuan milimeter</small>
             </div>
             <button type="submit" class="btn btn-primary">Update Curah Hujan</button>

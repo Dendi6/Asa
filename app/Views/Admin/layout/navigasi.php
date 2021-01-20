@@ -41,7 +41,7 @@
 
     <!-- Nav Item - produk -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('admin/kecepatanAngin'); ?>">
             <i class="fas fa-fw fa-cog"></i>
             <span>Kecepatan Angin</span></a>
     </li>

@@ -4,16 +4,18 @@ namespace App\Controllers;
 
 use App\Models\ArahAnginModel;
 use App\Models\CurahHujanModel;
+use App\Models\KecepatanAnginModel;
 use Myth\Auth\Models\UserModel;
 
 class Admin extends BaseController
 {
-    protected $userModel, $curahhujanModel, $arahanginModel;
+    protected $userModel, $curahhujanModel, $arahanginModel, $kecepatanAnginModel;
     public function __construct()
     {
         $this->userModel = new UserModel();
         $this->curahhujanModel = new CurahHujanModel();
         $this->arahanginModel = new ArahAnginModel();
+        $this->kecepatanAnginModel = new KecepatanAnginModel();
     }
 
     public function index()
@@ -129,4 +131,56 @@ class Admin extends BaseController
         return redirect()->to('/admin/arahAngin');
     }
     //akhir fungsi arah angin
+
+    //fungsi kecepatan angin
+    public function kecepatanAngin()
+    {
+        $data = [
+            'title' => 'kecepatan angin',
+            'kecepatanAngin' => $this->kecepatanAnginModel->descending()
+        ];
+
+        return view('admin/kecepatanAngin/index', $data);
+    }
+    public function saveKecepatanAngin()
+    {
+        $this->kecepatanAnginModel->save([
+            'tanggal' => $this->request->getVar('tanggal'),
+            'kecepatanAngin' => $this->request->getVar('kecepatanAngin')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil di tambahkan');
+
+        return redirect()->to('/admin/kecepatanAngin');
+    }
+    public function hapusKecepatanAngin($id)
+    {
+        $this->kecepatanAnginModel->delete($id);
+
+        session()->setFlashdata('delete', 'Data berhasil di hapus');
+
+        return redirect()->to('/admin/kecepatanAngin');
+    }
+    public function editKecepatanAngin($id)
+    {
+        $data = [
+            'title' => 'edit kecepatan angin',
+            'kecepatanAngin' => $this->kecepatanAnginModel->find($id)
+        ];
+
+        return view('admin/kecepatanAngin/edit', $data);
+    }
+    public function updateKecepatanAngin()
+    {
+        $this->kecepatanAnginModel->save([
+            'id' => $this->request->getVar('id'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'kecepatanAngin' => $this->request->getVar('kecepatanAngin')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data berhasil di update');
+
+        return redirect()->to('/admin/kecepatanAngin');
+    }
+    //akhir fungsi kecepatan angin
 }
