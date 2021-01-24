@@ -15,11 +15,11 @@ class Profil extends BaseController
     }
 
     //fungsi index
-    public function index($id_user)
+    public function index($id)
     {
         $data = [
             'title' => 'Profil',
-            'riwayat' => $this->hasilModel->riwayatTankapan($id_user)
+            'riwayat' => $this->hasilModel->riwayatTankapan($id)
         ];
 
         return view('profil/index', $data);

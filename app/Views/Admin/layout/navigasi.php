@@ -24,28 +24,14 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Data
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('admin/curahHujan'); ?>">
+        <a class="nav-link" href="<?= base_url('admin/prediksiData') ?>">
             <i class="fas fa-fw fa-percent"></i>
-            <span>Curah Hujan</span></a>
+            <span>Input Data</span></a>
     </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('admin/arahAngin'); ?>">
-            <i class="fas fa-fw fa-city"></i>
-            <span>Arah Angin</span></a>
-    </li>
-
-    <!-- Nav Item - produk -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('admin/kecepatanAngin'); ?>">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Kecepatan Angin</span></a>
-    </li>
-
 
     <!-- Divider -->
     <hr class="sidebar-divider">
