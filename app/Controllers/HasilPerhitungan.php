@@ -2,13 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\HasilModel;
 use App\Models\PrediksiModel;
 
-class Mining extends BaseController
+class HasilPerhitungan extends BaseController
 {
-    protected $prediksiModel;
+    protected $hasilModel, $prediksiModel;
     public function __construct()
     {
+        $this->hasilModel = new HasilModel();
         $this->prediksiModel = new PrediksiModel();
     }
 
@@ -45,7 +47,6 @@ class Mining extends BaseController
         $p_arahAngin_yes = ($arahAngin_yes / $p_yes);
         $p_kecepatan_yes = ($kecepatanAngin_yes / $p_yes);
         $p_hasil_yes = ($p_yes / $count_all);
-
         //no
         $p_cuaca_no = ($cuaca_no / $p_no);
         $p_arahAngin_no = ($arahAngin_no / $p_no);
@@ -67,6 +68,27 @@ class Mining extends BaseController
             $hasil = 'tidak bagus';
         }
 
-        dd('Besok adalah hari yang ' . $hasil . ' untuk menangkap udang');
+        $array = [
+            'total' => $count_all,
+            'p_yes' => $p_yes,
+            'p_no' => $p_no,
+            'cuaca' => $cuaca_inputan,
+            'arahAngin' => $arahAngin_inputan,
+            'kecepatanAngin' => $kecepatanAngin_inputan,
+            'cuaca_yes' => $cuaca_yes,
+            'kecepatanAngin_yes' => $kecepatanAngin_yes,
+            'arahAngin_yes' => $arahAngin_yes,
+            'cuaca_no' => $cuaca_no,
+            'kecepatanAngin_no' => $kecepatanAngin_No,
+            'arahAngin_no' => $arahAngin_no
+        ];
+
+        $data = [
+            'title' => 'Perhitungan',
+            'hasil' => $hasil,
+            'array' => $array
+        ];
+
+        return view('hasilperhitungan/index', $data);
     }
 }

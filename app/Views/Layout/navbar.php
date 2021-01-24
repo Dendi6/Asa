@@ -10,7 +10,7 @@
                     <a class="nav-link <?= (uri_string() == '/') ? 'active' : '' ?>" href="<?= base_url(); ?>">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Visual</a>
+                    <a class="nav-link <?= (url_title('Perhitungan') == $title) ? 'active' : '' ?>" href="<?= base_url('hasilperhitungan'); ?>">Hasil Perhitungan</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

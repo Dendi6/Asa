@@ -47,7 +47,6 @@ class Home extends BaseController
 		$p_arahAngin_yes = ($arahAngin_yes / $p_yes);
 		$p_kecepatan_yes = ($kecepatanAngin_yes / $p_yes);
 		$p_hasil_yes = ($p_yes / $count_all);
-
 		//no
 		$p_cuaca_no = ($cuaca_no / $p_no);
 		$p_arahAngin_no = ($arahAngin_no / $p_no);
@@ -71,8 +70,7 @@ class Home extends BaseController
 
 		$data = [
 			'title' => 'Data Mining',
-			'hasil' => $hasil,
-			'inputan' => $inputan
+			'hasil' => $hasil
 		];
 
 		return view('beranda/index', $data);

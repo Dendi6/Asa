@@ -26,14 +26,6 @@
             Besok adalah waktu yang <b><?= $hasil; ?></b> untuk menangkap udang.
         </div>
     </div>
-    <div class="card mt-3">
-        <div class="card-body">
-            <div class="text-center">
-                <h5>Hasil Perhitungan</h5>
-            </div>
-
-        </div>
-    </div>
 </div>
 
 <!-- Modal -->
