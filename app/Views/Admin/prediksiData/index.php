@@ -31,9 +31,9 @@
             </button>
         </div>
 
-        <table class="table">
-            <thead>
-                <tr>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr class="text-center">
                     <th scope="col">No</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Curah Hujan</th>
@@ -44,7 +44,25 @@
                 </tr>
             </thead>
             <tbody>
-
+                <?php $i = 1; ?>
+                <?php foreach ($data as $d) : ?>
+                    <tr class="text-center">
+                        <td><?= $i++; ?></td>
+                        <td><?= $d['tanggal']; ?></td>
+                        <td><?= $d['curahHujan']; ?> mm</td>
+                        <td><?= $d['kecepatanAngin']; ?> m/s</td>
+                        <td><?= $d['arahAngin']; ?></td>
+                        <td><?= $d['hasilTangkapan']; ?> kg</td>
+                        <td>
+                            <a href="#" class="btn btn-success">
+                                <i class="fas fa-edit fa-cog"></i>
+                            </a>
+                            <a href="<?= base_url('admin/hapusData/' . $d['id']); ?>" class="btn btn-danger">
+                                <i class="fas fa-trash-alt fa-cog"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
 
@@ -54,7 +72,7 @@
 <!-- Modal tambah-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form class="modal-content" action="<?= base_url('admin/saveArahAngin'); ?>" method="POST">
+        <form class="modal-content" action="<?= base_url('admin/saveData'); ?>" method="POST">
             <?= csrf_field(); ?>
             <div class="modal-body">
                 <div class="form-group">
@@ -80,7 +98,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save Tiket</button>
+                <button type="submit" class="btn btn-primary">Simpan Input</button>
             </div>
         </form>
     </div>

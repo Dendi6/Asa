@@ -23,4 +23,18 @@ class HasilModel extends Model
 
         return $riwayat;
     }
+
+    public function rataRata($tanggal)
+    {
+        if ($tanggal == false) {
+            return 0;
+        }
+
+        $this->selectAvg('jumlahTangkapan');
+        $this->where('tanggal', $tanggal);
+        $query =  $this->get();
+        $rataRata = $query->getResultArray();
+
+        return $rataRata;
+    }
 }
