@@ -32,7 +32,7 @@
         </div>
 
         <table class="table table-bordered">
-            <thead class="thead-dark">
+            <thead class="bg-primary text-white">
                 <tr class="text-center">
                     <th scope="col">No</th>
                     <th scope="col">Tanggal</th>

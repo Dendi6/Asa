@@ -20,7 +20,9 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Dashboard',
-            'user' => $this->userModel->countAllResults()
+            'user' => $this->userModel->countAllResults(),
+            'jumlahData' => $this->prediksiModel->countAllResults(),
+            'jumlahStatus' => $this->hasilTangkapan->countAllResults()
         ];
 
         return view('admin/beranda/index', $data);
