@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <li class="nav-item <?= (url_title('Dashboard') == $title) ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin'); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -27,7 +27,7 @@
         Data
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item <?= (url_title('Data') == $title) ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('admin/prediksiData') ?>">
             <i class="fas fa-fw fa-percent"></i>
             <span>Input Data</span></a>

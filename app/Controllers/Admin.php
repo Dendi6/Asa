@@ -19,7 +19,7 @@ class Admin extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Admin Data Mining',
+            'title' => 'Dashboard',
             'user' => $this->userModel->countAllResults()
         ];
 
@@ -29,7 +29,7 @@ class Admin extends BaseController
     public function prediksiData()
     {
         $data = [
-            'title' => 'prediksi data',
+            'title' => 'Data',
             'data' => $this->prediksiModel->descending()
         ];
 

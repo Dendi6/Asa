@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url(); ?>">Beranda</a>
+                    <a class="nav-link <?= (uri_string() == '/') ? 'active' : '' ?>" href="<?= base_url(); ?>">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Visual</a>
@@ -17,8 +17,8 @@
                         <img src="<?= base_url() ?>/images/profil/<?= user()->sampul; ?>" class="rounded-circle" width="30" height="30" alt="<?= user()->username; ?>">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="<?= base_url('profil/' . user()->id); ?>">Profil</a>
-                        <a class="dropdown-item" href="<?= base_url('home/riwayat/' . user()->id); ?>">Riwayat</a>
+                        <a class="dropdown-item <?= (url_title('Profil') == $title) ? 'active' : '' ?>" href="<?= base_url('profil/' . user()->id); ?>">Profil</a>
+                        <a class="dropdown-item <?= (url_title('Riwayat') == $title) ? 'active' : '' ?>" href="<?= base_url('home/riwayat/' . user()->id); ?>">Riwayat</a>
                         <?php if (in_groups('admin')) : ?>
                             <a class="dropdown-item" href="<?= base_url('admin'); ?>">Admin</a>
                         <?php endif; ?>
