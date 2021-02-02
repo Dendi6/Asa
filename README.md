@@ -3,14 +3,22 @@
 Asa merupaka aplikasi yang di kembangkan demi kepentingan penyelesaian tugas data mining.
 aplikasi ini di bangun menggunakan framework codeigniter 4, bootstrap sebagai framework css dan mysql sebagai database.
 
-## instalasi
+## Running
 
 1. Import database dengan nama `ASA.sql`
-2. Setting file `.env` dan sesuaikan dengan nama database dan URL
-3. Lakukan running dengan perintah `php spark serve` => note-- lakukan instalasi composer
+2. Lakukan instalasi package dengan perintah `composer update`
+3. Pindahkan folder `app/views/auth/views` ke folder `vendor/myth/auth/src`
+4. Pindahkan folder `app/views/auth/filters` ke folder `vendor/myth/auth/src`
+5. Pindahkan file `auth.php` pada folder `app/views/auth` ke folder `vendor/myth/auth/src/config`
 
-4. Jika tahap 3 tidak berjalan, pindahkan kode ke dalam folder Htdocs di xampp dan wampp
-5. setting, `.env` sesuai dengan kebutuhan
-6. lakukan running dengan cara memanggil folder public di htdocs.
+## Interface
+
+<img src="public/images/interface.png">
+
+## Relasi Antar Tabel
+
+<img src="public/images/rat.png">
+
+---
 
 ## Terima Kasih
